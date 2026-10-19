@@ -1,0 +1,364 @@
+[
+  {
+    "id": "healthcare-track",
+    "name": "Healthcare Track",
+    "description": "A healthcare management platform designed to help medical teams manage patient information, healthcare workflows, and real-time diagnostic data.",
+    "industries": [
+      "Healthcare"
+    ],
+    "services": [
+      "Mobile App Development",
+      "Web Application Development",
+      "AI & LLM Solutions",
+      "Data Analytics",
+      "Enterprise Solutions"
+    ],
+    "platforms": [
+      "Web",
+      "Mobile"
+    ],
+    "features": [
+      "patient management",
+      "patient records",
+      "diagnostic scanning",
+      "real-time results",
+      "secure authentication",
+      "AI assistance",
+      "mobile application development",
+      "cross-platform applications",
+      "LLM integration",
+      "web application development",
+      "responsive web applications",
+      "API integration",
+      "analytics dashboards",
+      "reporting",
+      "role-based access"
+    ],
+    "technologies": [],
+    "keywords": [
+      "healthcare",
+      "medical application",
+      "patient management",
+      "diagnostics",
+      "healthcare technology",
+      "mobile app",
+      "healthcare app",
+      "medical app",
+      "patient records",
+      "AI assistant",
+      "LLM",
+      "web application",
+      "diagnostic reporting"
+    ],
+    "url": "https://images.unsplash.com/photo-1758691462668-046fd85ceac9?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+  },
+  {
+    "id": "demo-eshop",
+    "name": "Demo E-Shop",
+    "description": "A demonstration e-commerce platform focused on product discovery, personalized recommendations, inventory management, and secure online purchases.",
+    "industries": [
+      "Retail",
+      "E-commerce"
+    ],
+    "services": [
+      "E-commerce Development",
+      "AI & LLM Solutions",
+      "Mobile App Development"
+    ],
+    "platforms": [
+      "Web",
+      "Mobile"
+    ],
+    "features": [
+      "product catalog",
+      "product search",
+      "personalized recommendations",
+      "inventory management",
+      "secure checkout",
+      "wishlist",
+      "shopping cart",
+      "order management"
+    ],
+    "technologies": [],
+    "keywords": [
+      "ecommerce",
+      "online store",
+      "product discovery",
+      "shopping platform",
+      "recommendation engine",
+      "shopping cart",
+      "product catalog"
+    ],
+    "url": "https://images.unsplash.com/photo-1487014679447-9f8336841d58?q=80&w=1605&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+  },
+  {
+    "id": "real-estate-platform",
+    "name": "Real Estate Platform",
+    "description": "A property management and discovery platform that helps real estate professionals manage listings, clients, property searches, and deals.",
+    "industries": [
+      "Real Estate"
+    ],
+    "services": [
+      "Web Application Development",
+      "Mobile App Development",
+      "Enterprise Solutions"
+    ],
+    "platforms": [
+      "Web",
+      "Mobile"
+    ],
+    "features": [
+      "property listings",
+      "property search",
+      "client management",
+      "booking",
+      "dashboard",
+      "deal tracking"
+    ],
+    "technologies": [],
+    "keywords": [
+      "real estate",
+      "property platform",
+      "property management",
+      "real estate application",
+      "property search"
+    ],
+    "url": "https://images.pexels.com/photos/28618498/pexels-photo-28618498.jpeg"
+  },
+  {
+    "id": "finance-manager",
+    "name": "Finance Manager",
+    "description": "A financial management application designed to help organizations manage financial information, customer records, transactions, and business workflows.",
+    "industries": [
+      "Finance",
+      "FinTech"
+    ],
+    "services": [
+      "Enterprise Solutions",
+      "Data Analytics",
+      "Web Application Development"
+    ],
+    "platforms": [
+      "Web",
+      "Mobile"
+    ],
+    "features": [
+      "customer management",
+      "financial records",
+      "transaction management",
+      "secure authentication",
+      "reporting",
+      "dashboard"
+    ],
+    "technologies": [],
+    "keywords": [
+      "finance",
+      "fintech",
+      "financial platform",
+      "financial management",
+      "transactions"
+    ],
+    "url": "https://images.pexels.com/photos/6347705/pexels-photo-6347705.jpeg"
+  },
+  {
+    "id": "learning-platform",
+    "name": "Learning Platform",
+    "description": "An education platform that helps learners access courses, track progress, manage learning activities, and interact with educational content.",
+    "industries": [
+      "Education"
+    ],
+    "services": [
+      "Mobile App Development",
+      "Web Application Development",
+      "Enterprise Solutions"
+    ],
+    "platforms": [
+      "Web",
+      "Mobile"
+    ],
+    "features": [
+      "course management",
+      "student management",
+      "progress tracking",
+      "content management",
+      "notifications",
+      "dashboard"
+    ],
+    "technologies": [],
+    "keywords": [
+      "education",
+      "learning platform",
+      "online learning",
+      "courses",
+      "student management"
+    ],
+    "url": "https://images.pexels.com/photos/461073/pexels-photo-461073.jpeg"
+  },
+  
+  {
+    "id": "knowledge-assistant",
+    "name": "Knowledge Assistant",
+    "description": "An AI-powered internal knowledge platform that helps employees find answers across company documents, policies, and support resources using natural-language questions.",
+    "industries": [
+      "Enterprise",
+      "Education",
+      "Finance"
+    ],
+    "services": [
+      "AI & LLM Solutions",
+      "Web Application Development",
+      "Cloud Solutions",
+      "Enterprise Solutions"
+    ],
+    "platforms": [
+      "Web"
+    ],
+    "features": [
+      "AI assistants",
+      "LLM integration",
+      "natural language processing",
+      "document search",
+      "knowledge retrieval",
+      "role-based access",
+      "secure authentication",
+      "analytics dashboards"
+    ],
+    "technologies": [],
+    "keywords": [
+      "AI assistant",
+      "LLM",
+      "generative AI",
+      "enterprise knowledge",
+      "document search",
+      "natural language",
+      "knowledge management",
+      "AI automation"
+    ],
+    "url": "https://images.unsplash.com/vector-1762541378084-e52bb43d1aec"
+  },
+  {
+    "id": "warehouse-operations",
+    "name": "Warehouse Operations Hub",
+    "description": "A web-based operations platform for tracking stock levels, warehouse movements, supplier deliveries, and order fulfilment across multiple storage locations.",
+    "industries": [
+      "Retail",
+      "E-commerce",
+      "Enterprise"
+    ],
+    "services": [
+      "Web Application Development",
+      "Enterprise Solutions",
+      "Data Analytics",
+      "Cloud Solutions"
+    ],
+    "platforms": [
+      "Web"
+    ],
+    "features": [
+      "inventory management",
+      "order management",
+      "data management",
+      "dashboard development",
+      "reporting",
+      "API integration",
+      "role-based access",
+      "workflow management"
+    ],
+    "technologies": [],
+    "keywords": [
+      "warehouse management",
+      "inventory tracking",
+      "stock levels",
+      "order fulfilment",
+      "supplier deliveries",
+      "operations dashboard",
+      "business workflow",
+      "inventory analytics"
+    ],
+    "url": "https://images.unsplash.com/vector-1774785392812-fe17db00014b"
+  },
+  {
+    "id": "fleet-dispatch",
+    "name": "Fleet Dispatch Tracker",
+    "description": "A mobile-friendly fleet coordination system that helps dispatch teams assign deliveries, monitor trip progress, manage driver details, and review operational performance.",
+    "industries": [
+      "Enterprise",
+      "Retail",
+      "E-commerce"
+    ],
+    "services": [
+      "Mobile App Development",
+      "Web Application Development",
+      "Data Analytics",
+      "Cloud Solutions"
+    ],
+    "platforms": [
+      "Mobile",
+      "Web"
+    ],
+    "features": [
+      "mobile application development",
+      "real-time applications",
+      "push notifications",
+      "dashboard development",
+      "reporting",
+      "API integration",
+      "data management",
+      "performance insights"
+    ],
+    "technologies": [],
+    "keywords": [
+      "fleet tracking",
+      "dispatch management",
+      "delivery tracking",
+      "driver management",
+      "real-time updates",
+      "mobile app",
+      "operations dashboard",
+      "route status"
+    ],
+    "url": "https://images.unsplash.com/vector-1775025869711-b9611e305895"
+  },
+  {
+    "id": "team-collaboration",
+    "name": "Team Collaboration Workspace",
+    "description": "A cloud-based workspace for distributed teams to organize tasks, share project updates, manage access, and monitor team workload from a unified web dashboard.",
+    "industries": [
+      "Enterprise",
+      "Education",
+      "Finance"
+    ],
+    "services": [
+      "Enterprise Solutions",
+      "Web Application Development",
+      "Cloud Solutions",
+      "Custom Software Development"
+    ],
+    "platforms": [
+      "Web"
+    ],
+    "features": [
+      "business workflow management",
+      "role-based access",
+      "data management",
+      "dashboard development",
+      "cloud application development",
+      "system integration",
+      "reporting",
+      "secure authentication"
+    ],
+    "technologies": [],
+    "keywords": [
+      "team collaboration",
+      "project workspace",
+      "task management",
+      "cloud application",
+      "business workflow",
+      "team dashboard",
+      "role-based access",
+      "productivity"
+    ],
+    "url": "https://images.unsplash.com/vector-1769087356707-9986e7015a5b"
+  }
+]
+

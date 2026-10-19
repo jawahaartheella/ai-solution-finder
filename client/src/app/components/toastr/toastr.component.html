@@ -1,0 +1,10 @@
+<div class=" shadow-lg fixed top-18 right-5 border border-red-300 rounded-lg p-4 bg-red-100 w-1/4 z-30"
+    [ngClass]="{'animate-[slideIn_0.3s_ease-out]': toastrService.showToastr()}">
+    <div class="flex justify-between items-start mb-2">
+        <h5 class="text-red-500 text-lg">Error Occured</h5>
+        <button class="p-1 flex cursor-pointer" (click)="toastrService.closeToastr()">
+            <svg lucideX [size]="16" class="text-slate-600"></svg>
+        </button>
+    </div>
+    <p class="text-sm text-slate-600">{{toastrService.message()}}</p>
+</div>

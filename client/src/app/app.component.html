@@ -1,0 +1,16 @@
+<nav class="flex justify-between items-center p-4 border-b border-slate-300 sticky top-0 bg-white z-20 shadow-sm">
+    <div class="flex items-center gap-2">
+        <svg lucideSparkles [size]="22" class="text-blue-700"></svg>
+        <span class="text-xl font-bold">AI Solution Finder</span>
+    </div>
+    <button class="px-3 py-2 bg-blue-500 rounded-lg flex items-center gap-1 text-white text-xs cursor-pointer" (click)="newSearch()">
+        <svg lucidePlus [size]="14"></svg>
+        <span>Start New Search</span>
+    </button>
+</nav>
+@if(toastrService.showToastr()) {
+    <app-toastr></app-toastr>
+}
+<main class="bg-blue-100/20">
+    <router-outlet></router-outlet>
+</main>

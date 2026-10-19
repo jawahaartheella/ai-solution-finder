@@ -1,0 +1,255 @@
+
+
+<main class="w-full px-18 py-6">
+    <a class="flex gap-2 items-center text-blue-400 mb-3 cursor-pointer" (click)="startNewSearch()">
+        <svg lucideMoveLeft [size]="14"></svg>
+        <span class="text-sm">New Search</span>
+    </a>
+    <section class="flex gap-4 w-full">
+        <section class="w-2/3">
+            <div class="mb-4">
+                <h2 class="font-bold text-3xl">Your recommended solution</h2>
+                <p class="text-sm text-slate-500">Based on your requirments, here are the most relevant services and project examples</p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                
+                <div class="flex items-start justify-between p-4 border border-slate-300/50 rounded-xl bg-white">
+                    <div class="flex items-start gap-4">
+                        <div class="p-4 rounded-full bg-fuchsia-200/50 text-fuchsia-500">
+                            <svg lucideWandSparkles [size]="24"></svg>
+                        </div>
+                        <div>
+                            <span class="text-[11px] px-3 py-[2px] bg-fuchsia-200/70 text-fuchsia-500 rounded-full font-medium">Recommended Solution</span>
+                            <div class="flex items-center gap-3 mb-2 mt-1">
+                                <h4 class="text-2xl font-bold">{{recommendationResult.solutionName}}</h4>
+                                <div class="flex items-center gap-1 py-[2px] px-2 rounded-full font-semibold bg-green-300/50 text-green-700">
+                                        <svg lucideBadgeCheck [size]="12"></svg>
+                                        <span class="text-[11px] mt-[2px]">{{recommendationResult.recommendedServices[0].matchScore > 70 ? recommendationResult.recommendedServices[0].matchScore + '% match' : 'Best match'}}</span>
+                                </div>
+                            </div>
+                            <p class="text-slate-500 text-xs pr-5">{{recommendationResult.whyThisSolution}}</p>
+                            <div class="mt-3 flex items-center flex-wrap gap-2">
+                                @for(cap of recommendationResult.recommendedServices[0].service.capabilities.slice(0,3); track cap) {
+                                    <span class="px-2 py-1 rounded-lg text-blue-500 bg-blue-300/20 text-xs truncate font-semibold" title="{{cap}}">{{cap}}</span>
+                                }
+                                @if(recommendationResult.recommendedServices[0].service.capabilities.length > 3) {
+                                    <span class="px-2 py-1 text-blue-500 bg-blue-300/20 text-xs rounded-lg font-semibold">+{{(recommendationResult.recommendedServices[0].service.capabilities.length - 3)}}</span>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex items-start justify-between p-4 border border-slate-300/50 rounded-xl bg-white">
+                    <div class="flex items-start gap-4">
+                        <div class="p-3 rounded-full bg-blue-200/30 text-blue-500">
+                            <svg lucideSquareText [size]="20"></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-semibold mb-1">Your Requirement</h4>
+                            <p class="text-slate-500 text-xs pr-5">{{userRequest}}</p>
+                        </div>
+                    </div>
+                    <button class="flex gap-2 items-center text-blue-500 cursor-pointer">
+                        <svg lucideSquarePen [size]="14"></svg>
+                        <span class="text-sm">Edit</span>
+                    </button>
+                </div>
+
+                <div class="border border-slate-300/50 rounded-xl p-4 bg-white">
+                    <div class="flex gap-4 items-start mb-4">
+                        <div class="p-3 bg-blue-200/30 text-blue-500 rounded-full">
+                            <svg lucideWrench [size]="20"></svg>
+                        </div>
+                        <div class="w-full">
+                            <div class="flex items-center justify-between">
+                                <h4 class="text-lg font-semibold">Recommended Services</h4>
+                                <a href="#" class="flex gap-2 items-center text-blue-500 pr-2 pointer-events-none">
+                                    <span class="text-xs">View All Services</span>
+                                    <svg lucideMoveRight [size]="16"></svg>
+                                </a>
+                            </div>
+                            <p class="text-xs text-slate-500">These services best match your requirements.</p>
+                        </div>
+                    </div>
+                    @if(recommendationResult) {
+                        <div class="grid grid-flow-row grid-cols-3 gap-3">
+                            @for(recService of recommendationResult.recommendedServices; track recService.service.id) {
+                                <div class="p-3 border border-slate-300/50 rounded-lg cursor-pointer">
+                                    <div class="flex items-start justify-between mb-2">
+                                        <div class="p-3 rounded-full"
+                                            [ngClass]="colorClasses[recService.service.color]">
+                                            <svg [lucideIcon]="recService.service.icon!" [size]="24"></svg>
+                                        </div>
+                                        <div class="flex items-center gap-1 py-1 px-2 rounded-full font-semibold"
+                                            [ngClass]="recService.matchScore > 70 ? 'bg-green-300/20 text-green-600' : 'bg-yellow-300/20 text-yellow-600'">
+                                                @if(recService.matchScore > 70) {
+                                                    <svg lucideBadgeCheck [size]="12"></svg>
+                                                } @else {
+                                                    <svg lucideSearchCheck [size]="12"></svg>
+                                                }
+                                                <span class="text-[11px] mt-[2px]">{{recService.matchScore ? recService.matchScore + '% match' : 'Most Relevant'}}</span>
+                                        </div>
+                                    </div>
+                                    <h5 class="font-medium mb-1">{{recService.service.name}}</h5>
+                                    <p class="text-xs text-slate-500 line-clamp-2 mb-3" title="{{recService.service.description}}">{{recService.service.description}}</p>
+                                    <div class="flex gap-2 items-center">
+                                        @for(cap of recService.service.capabilities.slice(0,2); track cap) {
+                                            <span class="px-2 py-1 rounded-full text-blue-500 bg-blue-300/20 text-xs truncate font-semibold" title="{{cap}}">{{cap}}</span>
+                                        }
+                                        @if(recService.service.capabilities.length > 2) {
+                                            <span class="px-2 py-1 text-blue-500 bg-blue-300/20 text-xs rounded-full font-semibold">+{{(recService.service.capabilities.length - 2)}}</span>
+                                        }
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+
+                <div class="border border-slate-300/50 rounded-xl p-4 bg-white">
+                    <div class="flex gap-4 items-start mb-4">
+                        <div class="p-3 bg-amber-200/30 text-amber-500 rounded-full">
+                            <svg lucideFolderClosed [size]="20"></svg>
+                        </div>
+                        <div class="w-full">
+                            <div class="flex items-center justify-between">
+                                <h4 class="text-lg font-semibold">Relavent Projects</h4>
+                                <a href="#" class="flex gap-2 items-center text-blue-500 pr-2 pointer-events-none">
+                                    <span class="text-xs">View All Projects</span>
+                                    <svg lucideMoveRight [size]="16"></svg>
+                                </a>
+                            </div>
+                            <p class="text-xs text-slate-500">Here are some similar project examples.</p>
+                        </div>
+                    </div>
+                    @if(recommendationResult) {
+                        <div class="grid grid-flow-row grid-cols-3 gap-3">
+                            @for(relProject of recommendationResult.relevantProjects; track relProject.project.id) {
+                                <div class="p-3 border border-slate-300/50 rounded-lg">
+                                    <a href="">
+                                        <img class="aspect-video cursor-pointer rounded-lg mb-2" src="{{relProject.project.url}}" alt="sample-img">
+                                    </a>
+                                    <a href="#" class="cursor-pointer"><h5 class="font-medium mb-1">{{relProject.project.name}}</h5></a> 
+                                    <p class="text-xs text-slate-500 line-clamp-2 mb-3" title="{{relProject.project.description}}">{{relProject.project.description}}</p>
+                                    <div class="flex gap-2 items-center">
+                                        @for(feature of relProject.project.features.slice(0,2); track feature) {
+                                            <span class="px-2 py-1 rounded-full text-blue-500 bg-blue-300/20 text-xs truncate font-semibold" title="{{feature}}">{{feature}}</span>
+                                        }
+                                        @if(relProject.project.features.length > 2) {
+                                            <span class="px-2 py-1 text-blue-500 bg-blue-300/20 text-xs rounded-full font-semibold">+{{(relProject.project.features.length - 2)}}</span>
+                                        }
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </section>
+        <aside class="w-1/3">
+            <div class="px-5 py-4 rounded-xl bg-white border border-slate-300/50">
+                <div class="flex gap-2 items-start border-b border-slate-300/50 pb-6 mb-3">
+                    <div class="p-3 rounded-full bg-violet-300/20 text-violet-500">
+                        <svg lucideSparkles [size]="20"></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold tracking-tight">AI Analysis</h3>
+                        <p class="text-slate-500 text-xs">Here's how we understand your requirement.</p>
+                    </div>
+                </div>
+                <div class="pb-3 mb-3 border-b border-slate-300/50">
+                    <div class="flex gap-20 items-center">
+                        <div class="flex gap-4 items-center flex-none">
+                            <svg lucideBuildingComplex [size]="20" class="text-slate-600"></svg>
+                            <p class="text-sm font-medium">Industry</p>
+                        </div>
+                        <span class="text-xs bg-blue-300/20 py-2 px-4 rounded-xl text-blue-500 font-medium">{{formattedRequest.industry}}</span>
+                    </div>
+                </div>
+                <div class="pb-3 mb-3 border-b border-slate-300/50">
+                    <div class="flex gap-6 items-center">
+                        <div class="flex gap-4 items-center flex-none">
+                            <svg lucideMonitor [size]="20" class="text-slate-600"></svg>
+                            <p class="text-sm font-medium">Target Platforms</p>
+                        </div>
+                        <div class="flex gap-2 items-center">
+                            @for(platform of formattedRequest.platforms; track platform) {
+                                <span class="text-xs bg-blue-300/20 py-2 px-4 rounded-xl text-blue-500 font-medium">{{platform}}</span>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="pb-3 mb-3 border-b border-slate-300/50">
+                    <div class="flex gap-12 items-start">
+                        <div class="flex gap-4 items-center pt-2 flex-none">
+                            <svg lucideList [size]="20" class="text-slate-600"></svg>
+                            <p class="text-sm font-medium">Key Features</p>
+                        </div>
+                        <div class="flex flex-col gap-2 items-start">
+                            @for(feature of formattedRequest.features.slice(0,4); track feature) {
+                                <span class="text-xs bg-green-300/20 py-2 px-4 rounded-xl text-green-500 font-medium capitalize">{{feature}} course platform</span>
+                            }
+                            @if(formattedRequest.features.length > 5) {
+                                <span class="text-xs bg-green-300/20 py-2 px-4 rounded-xl text-green-500 font-medium">+{{formattedRequest.features.length-4}} more</span>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex gap-10 items-start">
+                        <div class="flex gap-4 items-center pt-2 flex-none">
+                            <svg lucideTarget [size]="20" class="text-slate-600"></svg>
+                            <p class="text-sm font-medium">Business Goal</p>
+                        </div>
+                        <div class="flex flex-col gap-2 items-start">
+                            <p class="text-xs bg-purple-300/20 py-2 px-4 rounded-xl text-purple-500 font-medium"> {{formattedRequest.businessGoal}} </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 border border-slate-300/50 rounded-xl py-4 px-5">
+                <div class="flex items-start gap-6">
+                    <div class="bg-yellow-300/20 text-orange-500 p-3 rounded-full rotate-180">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" class="fill-orange-400">
+                            <path
+                                d="M440-80v-120h80v120h-80ZM80-440v-80h120v80H80Zm680 0v-80h120v80H760Zm-40 276-84-84 56-56 84 84-56 56Zm-480 0-56-56 84-84 56 56-84 84Zm98.5-174.5Q280-397 280-480q0-48 21.5-89.5T360-640v-200h240v200q37 29 58.5 70.5T680-480q0 83-58.5 141.5T480-280q-83 0-141.5-58.5ZM440-676q10-2 20-3t20-1q10 0 20 1t20 3v-84h-80v84Zm40 316q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0-120Z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold tracking-tight">AI Oppurtunities</h3>
+                        <p class="text-xs mb-2 text-slate-500">Here are some AI oppurtunities for your solution.</p>
+                        <div>
+                            @for (item of recommendationResult.aiOpportunities; track item) {
+                                <div class="flex gap-2 items-start">
+                                    <div class="p-1 rounded-full bg-orange-400 mt-1"></div>
+                                    <p class="text-xs text-slate-500">{{item}}</p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 border border-slate-300/50 rounded-xl py-4 px-5">
+                <div class="flex items-start gap-6 mb-2">
+                    <div class="bg-blue-300/20 text-blue-500 p-3 rounded-full">
+                       <svg lucideUserRound [size]="20"></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold tracking-tight">Why Our Company</h3>
+                        <p class="text-xs mb-2 text-slate-500">Here is why you should choose our company</p>
+                    </div>
+                </div>
+                <div class="pl-4">
+                    @for (item of recommendationResult.whyOurCompany; track item) {
+                        <div class="flex gap-2 items-start mb-[2px]">
+                            <svg lucideCircleCheck [size]="16" class="fill-blue-300 text-blue-700 flex-none"></svg>
+                            <p class="text-xs text-slate-500">{{item}}</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </aside>
+    </section>
+</main>

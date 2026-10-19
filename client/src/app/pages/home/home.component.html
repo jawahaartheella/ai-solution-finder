@@ -1,0 +1,65 @@
+<div class="flex flex-col justify-center items-center p-12">
+    <div class="flex items-center gap-1 rounded-full px-4 py-2 bg-blue-200/30 text-blue-500 font-semibold mb-6">
+        <svg lucideSparkles [size]="12"></svg>
+        <span class="text-xs">AI Powered Solution Finder</span>
+    </div>
+    <h1 class="font-bold text-5xl/13 px-110 text-center mb-4 tracking-tight">Find the Right Solution for <span class="text-blue-500">Your Business</span></h1>
+    <p class="text-lg/6 px-106 text-center txet-secondary text-slate-500 mb-8">Describe your idea or business requirement and our AI will recommend the most relevant Aayan Infotech services and case studies</p>
+    
+    <div class="border-2 border-slate-300/50 rounded-xl outline-none flex gap-4 items-start justify-start p-3 mb-6">
+        <div class="p-2 rounded-full bg-slate-200/60">
+            <svg lucideFilePenLine [size]="20"></svg>
+        </div>
+        <div class="mt-2">
+            <p class="text-sm">Describe your idea, business need, or project requirement...</p>
+            <textarea rows="4" cols="100"
+                    class="outline-none resize-none text-sm mt-1 text-slate-500" 
+                    placeholder="e.g. 'I want to build a mobile app for healthcare professionals with AI features'"
+                    [(ngModel)]="userRequest"
+            ></textarea>
+            <p class="text-end text-xs">{{userRequest.length}}/1000</p>
+        </div>
+    </div>
+    <button (click)="sendRequest()" [disabled]="!userRequest.length"
+            class="flex items-center justify-center gap-2 
+                   px-8 py-3 bg-blue-500 
+                   rounded-lg text-white w-1/6 
+                   cursor-pointer disabled:pointer-events-none disabled:bg-blue-500/70">
+        @if(isLoading) {
+            <svg lucideLoader [size]="16" class="animate-spin"></svg>
+        } @else {
+            <svg lucideSparkles [size]="18"></svg>
+        }
+        <span class="flex-none" [ngClass]="{'text-sm': isLoading}">{{isLoading ? 'Finding right solution' : 'Find my solution'}}</span>
+        @if(!isLoading) {
+            <svg lucideArrowRight [size]="20" class="pt-1"></svg>
+        }
+    </button>
+
+    <div class="flex mt-6 items-center gap-3 w-1/3">
+        <div class="border border-t-1 border-slate-400/50 w-1/2"></div>
+        <span class="text-sm text-slate-500 w-1/3 text-center">Try an example</span>
+        <div class="border border-t-1 border-slate-400/50 w-1/2"></div>
+    </div>
+
+    <div class="flex items-center gap-4 mt-4">
+        @for(request of exampleRequiermentList; track request.id) {
+            <span class="text-xs px-4 py-2 bg-blue-200/30 rounded-full cursor-pointer" (click)="setExampleRequirement(request.prompt)">{{request.name}}</span>
+        }   
+    </div>
+
+    <div class="flex gap-4 px-12 mt-4">
+        @for(step of solutionSteps; track step.id) {
+            <div class="flex gap-8 items-center p-12">
+                <div class="{{step.bgColor}} p-6 rounded-full">
+                    <svg [lucideIcon]="step.icon" class="{{step.textColor}}" [size]="26"></svg>
+                </div>
+                <div>
+                    <h4 class="text-sm font-bold mb-1">{{step.id}}. {{step.title}}</h4>
+                    <p class="text-xs text-slate-500 ">{{step.description}}</p>
+                </div>
+            </div>
+            <div class="h-12 border-r-2 border-slate-300/60 mt-14 last:border-0"></div>
+        }
+    </div>
+</div>
