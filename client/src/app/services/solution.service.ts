@@ -10,7 +10,7 @@ import { ClientRequirement } from '../models/client-requirement.model';
 export class SolutionService {
 
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:3000/api/solution';
+  private apiUrl = 'https://ai-solution-finder.vercel.app/api/solution';
 
   userRequest = signal<string>('');
   recommendationResult = signal<RecommendationResult | null>(null);
