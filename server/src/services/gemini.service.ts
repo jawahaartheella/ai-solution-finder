@@ -18,7 +18,7 @@ export class GeminiService {
     ): Promise<ClientRequirement> {
 
         const prompt = `
-            You are a requirement analysis assistant for Aayan Infotech's Solution Finder.
+            You are a requirement analysis assistant for Solution Finder of a Company.
 
             Your task is to understand the user's project requirement and convert it
             into a structured ClientRequirement object.
